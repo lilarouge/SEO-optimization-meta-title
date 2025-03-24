@@ -28,8 +28,11 @@ def fetch_article_content(url):
         return None
 
 # Read the Excel file containing URLs and Titles
-file_path = "cyber_urls_blog.xlsx"  # Replace with the actual path to your Excel file
-df = pd.read_excel(file_path)
+
+url = "https://docs.google.com/spreadsheets/d/1j9fsTrFv3rgHj9aJgUe1LCZn-lRAQdQKsQE28gYJIqw/edit?usp=sharing"
+output = "urls_metaTitle.xlsx"
+gdown.download(url, output, quiet=False)
+df = pd.read_excel(output)
 
 # Ensure the columns are correctly named in the Excel file
 if 'Address' not in df.columns or 'Title' not in df.columns:
