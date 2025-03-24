@@ -33,7 +33,7 @@ def fetch_article_content(url):
 url = "https://docs.google.com/spreadsheets/d/1j9fsTrFv3rgHj9aJgUe1LCZn-lRAQdQKsQE28gYJIqw/edit?usp=sharing"
 output = "urls_metaTitle.xlsx"
 gdown.download(url, output, quiet=False)
-df = pd.read_excel(output)
+df = pd.read_excel(output, engine="openpyxl")
 
 # Ensure the columns are correctly named in the Excel file
 if 'Address' not in df.columns or 'Title' not in df.columns:
